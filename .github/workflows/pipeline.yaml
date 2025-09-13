@@ -7,21 +7,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@y5
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@y5
-    
-    - name: Set up Node.jobs
-      uses: actions/setup-node@v3
-      with:
-          node-version : 16
-    
-    - name: Install dependencies
-      run: npm Install
-    
-    - name: Run tests
-      run: npm test
+      - name: Set up Node.jobs
+        uses: actions/setup-node@v3
+        with:
+            node-version : 16
+
+      - name: Install dependencies
+        run: npm Install
+
+      - name: Run tests
+        run: npm test
 
     
   
