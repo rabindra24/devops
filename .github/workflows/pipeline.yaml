@@ -2,23 +2,23 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branch: [main]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Get File from vm
-      uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node code
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    
-    - name: Install dependencies
-      run: npm install
+      - name: Set up Node.jobs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-    - name: Run test
-      run: npm test
+      - name: Install dependencies
+        run: npm install 
+      
+      - name: Run tests
+        run: npm test
